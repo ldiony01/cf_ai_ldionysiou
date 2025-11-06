@@ -78,7 +78,7 @@ export class ChatRoomDO implements DurableObject {
               content: string;
             }>;
 
-            const model = (this.env?.DEFAULT_MODEL as string) ?? '@cf/meta/llama-3.3-70b-instruct';
+            const model = (this.env?.DEFAULT_MODEL as string) ?? '@cf/meta/llama-3.3-70b-instruct-fp8-fast';
             const result = await this.env.AI.run(model, { messages });
             const reply = result?.response ?? result?.result ?? JSON.stringify(result);
 
