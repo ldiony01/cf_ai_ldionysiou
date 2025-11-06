@@ -1,0 +1,19 @@
+name = "euroleague-ai-news-scout"
+main = "src/worker.ts"
+compatibility_date = "2025-11-01"
+
+[durable_objects]
+bindings = [
+  { name = "CHAT_ROOM", class_name = "ChatRoomDO" }
+]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["ChatRoomDO"]  
+
+[ai]
+binding = "AI" 
+
+[vars]
+DEFAULT_MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+CORS_ORIGIN = "https://euroleague-ai-news-scout.pages.dev" 
